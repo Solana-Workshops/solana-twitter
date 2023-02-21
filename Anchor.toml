@@ -1,0 +1,16 @@
+[features]
+seeds = false
+[programs.devnet]
+solana_twitter_v1 = "BnsBsM7xZ6XhxmiFXkMp8veyBnPdBkfauVcGfn9onzTk"
+solana_twitter_v2 = "3YvoWYBSgq1ge4wpopNXZbKjfQpcZ7Gkh4QWNMQddXiS"
+
+[registry]
+url = "https://anchor.projectserum.com"
+
+[provider]
+cluster = "devnet"
+wallet = "~/.config/solana/id.json"
+
+[scripts]
+test-v1 = "cp ./target/idl/solana_twitter_v1.json ./app_v1/src/utils/idl.json && yarn run ts-mocha -p ./tests/tsconfig.tests.json -t 1000000 tests/solana-twitter-v1.ts"
+test-v2 = "cp ./target/idl/solana_twitter_v2.json ./app_v2/src/utils/idl.json && yarn run ts-mocha -p ./tests/tsconfig.tests.json -t 1000000 tests/solana-twitter-v2.ts"
