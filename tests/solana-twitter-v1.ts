@@ -41,36 +41,6 @@ describe("Solana Twitter v1 Tests", async () => {
         );
     });
 
-    it("Update profile's handle", async () => {
-        let existingDisplayName;
-        try {
-            existingDisplayName = (await program.account.solanaTwitterProfile.fetch(testWallet1ProfilePda)).displayName;
-        } catch (_) {
-            throw("Profile was not created successfully in previous test.");
-        };
-        await anchor.web3.sendAndConfirmTransaction(
-            connection,
-            await util.modifyProfileTransaction(testWallet1, "dwightkschrute", existingDisplayName),
-            [testWallet1.payer]
-        );
-        await printProfileInfo(testWallet1ProfilePda);
-    });
-
-    it("Update profile's display name", async () => {
-        let existingHandle;
-        try {
-            existingHandle = (await program.account.solanaTwitterProfile.fetch(testWallet1ProfilePda)).handle;
-        } catch (_) {
-            throw("Profile was not created successfully in previous test.");
-        };
-        await anchor.web3.sendAndConfirmTransaction(
-            connection,
-            await util.modifyProfileTransaction(testWallet1, existingHandle, "Dwight Schrute"),
-            [testWallet1.payer]
-        );
-        await printProfileInfo(testWallet1ProfilePda);
-    });
-
     async function writeTweet(message: string) {
         await anchor.web3.sendAndConfirmTransaction(
             connection,

@@ -5,7 +5,7 @@ use instructions::*;
 pub mod instructions;
 pub mod state;
 
-declare_id!("7Fvpm2szKQC586cxko7p48mvWCHi8NU16TAftnV1TGbX");
+declare_id!("EWvEFHjk8kVJgVrH7KAYwjqAyzHf3NzPRggLbA5Uj7SZ");
 
 #[program]
 pub mod solana_twitter_v1 {

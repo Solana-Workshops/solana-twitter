@@ -1,3 +1,4 @@
+import { PROGRAM_ID as METADATA_PROGRAM_ID } from "@metaplex-foundation/mpl-token-metadata"
 import * as anchor from "@project-serum/anchor";
 import { AnchorWallet } from "@solana/wallet-adapter-react";
 import { ProfileObject, TweetObject } from '../models/types';
@@ -35,6 +36,45 @@ export async function getAnchorConfigs(
     return [provider, program, seedUtil];
 }
 
+
+/**
+ * Creates the "Like" and "Retweet" mints for the app
+ * @param wallet 
+ * @param handle 
+ * @param displayName 
+ * @returns CreateMints Transaction
+ */
+export async function createMintsTransaction(
+    wallet: AnchorWallet,
+): Promise<anchor.web3.Transaction> {
+
+    const [provider, program, seedUtil] = await getAnchorConfigs(wallet);
+    const likeIx = await program.methods.createLikeMint()
+        .accounts({
+            likeMint: seedUtil.likeMintPda,
+            likeMetadata: seedUtil.likeMetadataPda,
+            likeMintAuthority: seedUtil.likeMintAuthorityPda,
+            payer: wallet.publicKey,
+            rent: anchor.web3.SYSVAR_RENT_PUBKEY,
+            systemProgram: anchor.web3.SystemProgram.programId,
+            tokenProgram: anchor.utils.token.TOKEN_PROGRAM_ID,
+            tokenMetadataProgram: METADATA_PROGRAM_ID,
+        })
+        .instruction();
+    const retweetIx = await program.methods.createRetweetMint()
+        .accounts({
+            retweetMint: seedUtil.retweetMintPda,
+            retweetMetadata: seedUtil.retweetMetadataPda,
+            retweetMintAuthority: seedUtil.retweetMintAuthorityPda,
+            payer: wallet.publicKey,
+            rent: anchor.web3.SYSVAR_RENT_PUBKEY,
+            systemProgram: anchor.web3.SystemProgram.programId,
+            tokenProgram: anchor.utils.token.TOKEN_PROGRAM_ID,
+            tokenMetadataProgram: METADATA_PROGRAM_ID,
+        })
+        .instruction();
+    return new anchor.web3.Transaction().add(likeIx).add(retweetIx);
+};
 
 /**
  * Creates a user profile
