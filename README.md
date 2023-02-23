@@ -5,15 +5,12 @@
 | ---- | ---------- | ----- |
 | [<img src="https://raw.githubusercontent.com/Solana-Workshops/.github/main/.docs/youtube-icon.png" alt="youtube" width="20" align="center"/> Recording](https://youtu.be/yubojBH8e_Q) | Joe Caulfield | N/A |
 
-## [Try out the demo here](https://bit.ly/sol-twitter)
+## ☄️ Open in Solana Playground IDE
 
-## Open code-ready playgrounds
-
-
-| versions | program                                                                                                                                                                              | client                                                                                                                                 |   |   |
-|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|---|---|
-| v1       | [ ![program](https://ik.imagekit.io/mkpjlhtny/solpg_button_zWM8WlPKs.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1662621556513)](  https://beta.solpg.io/6317ce2fbb7e0b5f4ca6dfa3) | [ ![client ](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/github/heyAyushh/solana-twitter/main?file=%2FREADME.md) |   
-| v2       | coming_soon                                                                                                                                                                          | soooooon                                                                                                                               |   
+| Program | Link |
+| -------------------- | --------------------------------------- |
+| v1 | [ ![program](https://ik.imagekit.io/mkpjlhtny/solpg_button_zWM8WlPKs.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1662621556513)](  https://beta.solpg.io/github/https://github.com/Solana-Workshops/solana-twitter/tree/main/programs/solana-twitter-v1) |
+| v2 | [ ![program](https://ik.imagekit.io/mkpjlhtny/solpg_button_zWM8WlPKs.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1662621556513)](  https://beta.solpg.io/github/https://github.com/Solana-Workshops/solana-twitter/tree/main/programs/solana-twitter-v2) |
 
 ## 📗 Learn
 
